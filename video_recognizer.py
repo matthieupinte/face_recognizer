@@ -2,10 +2,10 @@ import argparse
 import cv2
 import numpy as np
 
-from detector import recognize_faces
+from img_recognizer import recognize_faces
 from progress_bar import print_progress_bar
 
-def play_video(file_path: str, output_path: str = None, display: bool = False):
+def process_video(file_path: str, output_path: str = None, display: bool = False):
   print("Processing video...")
 
   cap = cv2.VideoCapture(file_path)
@@ -30,14 +30,14 @@ def play_video(file_path: str, output_path: str = None, display: bool = False):
       break
 
     small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-    rgb_frame = small_frame[:, :, ::-1]
+    rgb_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 
     faces = recognize_faces(input_image=rgb_frame)
 
     for name, (top, right, bottom, left) in faces:
       top *= 4; right *= 4; bottom *= 4; left *= 4
 
-      cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 1)
+      cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
       cv2.putText(frame, name, (left, top - 6), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
 
     if display is True:
@@ -69,6 +69,6 @@ if __name__ == "__main__":
   args = parser.parse_args()
 
   if args.f:
-    play_video(file_path=args.f, output_path=args.output, display=args.display)
+    process_video(file_path=args.f, output_path=args.output, display=args.display)
   else:
     parser.print_help()

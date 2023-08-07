@@ -73,7 +73,7 @@ def recognize_faces(
   ):
     name = _recognize_face(unknown_encoding, loaded_encodings)
     if not name:
-      name = "Unknown"
+      name = "unknown"
     faces.append([name, bounding_box])
 
   return faces
