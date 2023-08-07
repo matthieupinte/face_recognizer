@@ -20,6 +20,19 @@ options:
   -f F          Path to an image with an unknown face
 ```
 
+First train the model:
+```
+python img_recognizer.py --train
+```
+
+Sample:
+```sh
+python img_recognizer.py --test -f path/to/sample.jpg
+```
+
+![result](https://github.com/matthieupinte/face_recognizer/assets/2217014/12f853c4-1ef0-43ec-b916-f1d77457dccc)
+
+
 ## Video recognition
 
 ```sh
@@ -41,3 +54,7 @@ Sample:
 ```sh
 python video_recognizer.py -f path/to/sample.mp4 -o path/to/result.mp4 --display
 ```
+
+https://github.com/matthieupinte/face_recognizer/assets/2217014/4bdb22cb-fc86-4122-9cdf-35b23cff6e8a
+
+
