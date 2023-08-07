@@ -61,7 +61,7 @@ def process_video(file_path: str, output_path: str = None, display: bool = False
   print("\rCompleted !", end="")
 
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser(description="Video player")
+  parser = argparse.ArgumentParser(description="Video face recognition")
   parser.add_argument("-f", type=str, help="Video file path")
   parser.add_argument("-d", "--display", action="store_true", help="Display video")
   parser.add_argument("-o", "--output", type=str, help="Output file path")

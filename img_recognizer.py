@@ -106,7 +106,7 @@ def test(image_location: str, model: str = "hog"):
   pillow_image.show()
 
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser(description="Face recognition")
+  parser = argparse.ArgumentParser(description="Image face recognition")
   parser.add_argument("--train", action="store_true", help="Train the model")
   parser.add_argument("--validate", action="store_true", help="Validate trained model")
   parser.add_argument("--test", action="store_true", help="Test the model with an unknown image")
